@@ -1,0 +1,654 @@
+/* L3 Object Detail — Design tokens synced with L1/L2 */
+
+:root {
+  --bg: #f5f3ee;
+  --surface: #fffdfa;
+  --surface-alt: #f0ede7;
+  --line: rgba(18, 18, 18, 0.12);
+  --text: #3a352f;
+  --text-heading: #3a352f;
+  --muted: #6e6860;
+  --shadow: 0 14px 40px rgba(18, 18, 18, 0.05);
+  --radius-xl: 34px;
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-pill: 999px;
+  --page-width: 1280px;
+  --accent: #7a5af5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.page-shell {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 0 48px;
+}
+
+/* ─── Top Nav ─── */
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 32px 14px;
+  background: transparent;
+}
+
+.brand {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 540;
+  color: var(--text-heading);
+}
+
+.nav-links {
+  display: flex;
+  gap: 72px;
+  font-size: 0.94rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.nav-links a {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; }
+
+/* ─── Shared elements ─── */
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.86rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  padding: 0 32px;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  margin: 0 0 16px;
+  color: var(--text-heading);
+}
+
+.section-desc {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--text);
+  background: transparent;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: transform 0.2s, background 0.2s;
+}
+.pill-btn:hover {
+  background: var(--text);
+  color: var(--surface);
+  transform: translateY(-2px);
+}
+
+/* ─── Section 1: Hero (full-bleed) ─── */
+
+.hero-section {
+  background: var(--surface);
+  position: relative;
+  min-height: 70vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  /* break out of page-shell */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.hero-title {
+  font-size: clamp(3.2rem, 7vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-heading);
+  margin: 0 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section .pill-btn {
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating people (large, around edges) */
+.floating-illustration {
+  position: absolute;
+  height: auto;
+  opacity: 0.9;
+  z-index: 1;
+  animation: gentle-float 12s ease-in-out infinite;
+}
+
+/* Floating icons/elements (smaller, fill gaps) */
+.floating-icon {
+  position: absolute;
+  height: auto;
+  opacity: 0.7;
+  z-index: 1;
+  animation: gentle-float 10s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-4px, -10px); }
+}
+
+/* People — outer ring */
+.fi-1  { top: 5%;  left: 3%;  width: 110px; }
+.fi-2  { top: 2%;  left: 22%; width: 95px;  animation-delay: -2s; }
+.fi-3  { top: 8%;  right: 22%; width: 100px; animation-delay: -4s; }
+.fi-4  { top: 3%;  right: 4%;  width: 115px; animation-delay: -6s; }
+.fi-5  { bottom: 8%;  left: 5%;  width: 105px; animation-delay: -1s; }
+.fi-6  { bottom: 3%;  left: 28%; width: 90px;  animation-delay: -8s; }
+.fi-7  { top: 38%; left: 2%;  width: 100px; animation-delay: -3s; }
+.fi-8  { top: 35%; right: 3%; width: 110px; animation-delay: -5s; }
+.fi-9  { bottom: 5%;  right: 25%; width: 95px;  animation-delay: -7s; }
+.fi-10 { bottom: 2%;  right: 5%;  width: 105px; animation-delay: -10s; }
+
+/* Icons — sprinkled in gaps */
+.icon-1 { top: 18%; left: 15%;  width: 45px; animation-delay: -3.5s; }
+.icon-2 { top: 12%; right: 14%; width: 40px; animation-delay: -6.5s; }
+.icon-3 { bottom: 15%; left: 20%; width: 42px; animation-delay: -9s; }
+.icon-4 { bottom: 18%; right: 15%; width: 48px; animation-delay: -1.5s; }
+.icon-5 { top: 55%; left: 14%;  width: 38px; animation-delay: -4.5s; }
+.icon-6 { top: 60%; right: 16%; width: 44px; animation-delay: -7.5s; }
+.icon-7 { top: 28%; left: 38%;  width: 35px; animation-delay: -11s; }
+.icon-8 { bottom: 28%; right: 35%; width: 40px; animation-delay: -0.5s; }
+
+/* ─── Section 2: Collection Grid ─── */
+
+.collection-section {
+  padding: 100px 0 80px;
+  background: transparent;
+  /* break out of page-shell */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-visual {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--surface);
+  border: 1.6px solid rgba(18, 18, 18, 0.1);
+  border-radius: var(--radius-lg);
+  margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+.card-visual:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+.card-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-label {
+  font-size: 0.95rem;
+  font-weight: 430;
+  color: var(--text);
+}
+
+/* ─── Section 3: Quote (author insert) ─── */
+
+.quote-section {
+  padding: 48px 32px;
+  background: transparent;
+  /* break out of page-shell */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  display: flex;
+  justify-content: center;
+}
+
+.quote-frame {
+  max-width: 680px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 36px 44px;
+  background: var(--surface-alt);
+  position: relative;
+}
+
+.quote-label {
+  position: absolute;
+  top: -10px;
+  left: 32px;
+  background: var(--surface-alt);
+  padding: 0 12px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.quote-text {
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 0;
+  color: #666666;
+  margin: 0 0 16px;
+  font-weight: 400;
+}
+
+.signature {
+  text-align: right;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* ─── Section 4: Usage / Slideshow ─── */
+
+.usage-section {
+  /* break out of page-shell */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  height: 60vh;
+  overflow: hidden;
+}
+
+.usage-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  height: 100%;
+}
+
+/* Left: image carousel, bleeds past browser left edge */
+.usage-visual {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  margin-left: -25%;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+
+/* Right: text content */
+.usage-info {
+  padding: 48px 60px 48px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.usage-info h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  margin: 0 0 16px;
+  color: var(--text-heading);
+}
+
+.usage-info p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+}
+
+.usage-info .pill-btn {
+  align-self: flex-start;
+}
+
+/* Carousel tab buttons */
+.carousel-tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.carousel-tab {
+  padding: 8px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 450;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.carousel-tab.active {
+  background: var(--text);
+  color: var(--surface);
+  border-color: var(--text);
+}
+
+.carousel-tab:hover:not(.active) {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+/* ─── Section 5: Pricing ─── */
+
+.pricing-section {
+  padding: 100px 0;
+  background: var(--surface);
+  /* break out of page-shell */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.price-card {
+  border: 1.6px solid rgba(18, 18, 18, 0.08);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.price-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+.price-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 24px 72px rgba(122, 90, 245, 0.1);
+}
+
+/* Image takes ~50% of card */
+.price-visual {
+  width: 100%;
+  flex: 1 1 50%;
+  min-height: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.price-visual img {
+  width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+/* Text takes ~50% of card */
+.price-body {
+  flex: 1 1 50%;
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.price-body h3 {
+  font-size: 1.2rem;
+  font-weight: 440;
+  margin: 0 0 4px;
+  color: var(--text-heading);
+}
+
+.price-body .price-tag {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-heading);
+  margin: 0 0 12px;
+}
+
+.price-save {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.price-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+}
+
+.price-list li {
+  position: relative;
+  padding-left: 14px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.price-list li::before {
+  content: "\b7";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.price-list li.list-heading {
+  grid-column: 1 / -1;
+  padding-left: 0;
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.82rem;
+  margin-top: 6px;
+}
+
+.price-list li.list-heading::before {
+  content: none;
+}
+
+.price-body .pill-btn {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  padding: 8px 18px;
+}
+
+/* ─── Footer ─── */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 24px 32px 0;
+}
+
+.footer-name {
+  margin: 0 0 4px;
+  font-weight: 580;
+  font-size: 0.96rem;
+}
+
+.footer-copy {
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 400;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 410;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 980px) {
+  .nav-links {
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .collection-grid,
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .usage-section {
+    height: auto;
+  }
+
+  .usage-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .usage-visual {
+    margin-left: 0;
+    height: 40vh;
+  }
+
+  .usage-info {
+    padding: 40px 32px;
+  }
+
+  .quote-frame {
+    padding: 28px 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-nav {
+    display: grid;
+    gap: 14px;
+    padding: 16px 18px 12px;
+  }
+
+  .hero-section {
+    min-height: 60vh;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .collection-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-section {
+    padding: 32px 18px;
+  }
+
+  .quote-frame {
+    padding: 24px 20px;
+  }
+
+  .carousel-tabs {
+    flex-wrap: wrap;
+  }
+
+  .section-header {
+    padding: 0 18px;
+  }
+
+  .floating-illustration {
+    width: 60px !important;
+  }
+
+  .floating-icon {
+    width: 28px !important;
+  }
+
+  .usage-info {
+    padding: 32px 18px;
+  }
+}
