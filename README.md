@@ -25,4 +25,6 @@ This repository contains only the standalone illustration page and its required 
 
 ## Preview
 
-Open `index.html` directly in a browser, or view it through GitHub Pages after deployment is enabled.
+Live preview: <https://winnie-tan.github.io/personal-illustration-page/>
+
+You can also open `index.html` directly in a browser for a local preview.
