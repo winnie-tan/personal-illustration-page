@@ -25,6 +25,6 @@ This repository contains only the standalone illustration page and its required 
 
 ## Latest Preview
 
-Latest Framer preview: <https://framer.com/projects/Music-Illustration--TOpngUxiWMLfCX896mGQ-atWKL?node=Gjx6XqBkt&view=preview>
+Latest Framer site: <https://winnie-musicillustration.framer.website/>
 
 This repository keeps a static portfolio-safe code snapshot. The Framer link above is the latest standalone page preview.
