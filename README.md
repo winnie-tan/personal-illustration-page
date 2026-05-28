@@ -23,8 +23,8 @@ This page presents `Play! Musician.`, a music-themed illustration collection wit
 
 This repository contains only the standalone illustration page and its required assets. It does not include the full unfinished personal website, archive drafts, private notes, or local project configuration.
 
-## Preview
+## Latest Preview
 
-Live preview: <https://winnie-tan.github.io/personal-illustration-page/>
+Latest Framer preview: <https://framer.com/projects/Music-Illustration--TOpngUxiWMLfCX896mGQ-atWKL?node=Gjx6XqBkt&view=preview>
 
-You can also open `index.html` directly in a browser for a local preview.
+This repository keeps a static portfolio-safe code snapshot. The Framer link above is the latest standalone page preview.
